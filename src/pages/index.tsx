@@ -13,7 +13,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   const [imageString, setImageString] = useState<string>(
-    "AqvEp4bLCEBYIip9J4vLqBLJICfF0W00"
+    "SoWkIImgAStDuIfEJin9LJ3YuahCoKnELT2rKqZAJ-9oICrB0Se20000"
   );
   const [modelOpen, setModelOpen] = useState<boolean>(false);
   return (
