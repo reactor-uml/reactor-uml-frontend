@@ -6,7 +6,7 @@ interface ResultProps {
   openModal: () => void;
 }
 export default function Result(props: ResultProps) {
-  return (
+    return (
     <Paper
       sx={{
         width: "100%",

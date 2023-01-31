@@ -30,18 +30,19 @@ export default function Editor(props: EditorProps) {
         p: 1.3,
         display: "flex",
         alignItems: "center",
+          justifyContent: "center"
       }}
       elevation={3}
     >
       <TextField
         id="outlined-multiline-static"
         label="plantuml"
-        maxRows={25}
-        minRows={5}
+        minRows={8}
         multiline
         fullWidth
         value={uml}
         onChange={(e) => setUml(e.target.value)}
+        sx={{height: "inherit"}}
       />
     </Paper>
   );
