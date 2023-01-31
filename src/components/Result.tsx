@@ -1,5 +1,4 @@
 import { Box, Paper } from "@mui/material";
-import {useEffect, useState} from "react";
 
 interface ResultProps {
   imageString: string;
@@ -7,10 +6,6 @@ interface ResultProps {
   openModal: () => void;
 }
 export default function Result(props: ResultProps) {
-  const [imageUrl, setImageUrl] = useState<string>("/reactor-full.png")
-    useEffect(() => {
-        setImageUrl(`${props.serverUrl}/${props.imageString}`)
-    }, [props.imageString, props.serverUrl])
     return (
     <Paper
       sx={{
@@ -25,7 +20,7 @@ export default function Result(props: ResultProps) {
       <Box
         sx={{ objectFit: "scale-down", maxWidth: "100%", cursor: "pointer" }}
         component={"img"}
-        src={imageUrl}
+        src={`${props.serverUrl}/${props.imageString}`}
         alt={"result"}
         onClick={props.openModal}
       />
