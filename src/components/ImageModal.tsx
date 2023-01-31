@@ -26,7 +26,7 @@ export default function ImageModal(props: ImageModalProps) {
     <Modal open={props.modalOpen} onClose={props.closeModal}>
       <Box
         component={"img"}
-        src={`${props.serverUrl}/png/${props.imageString}`}
+        src={`${props.serverUrl}/${props.imageString}`}
         sx={style}
       ></Box>
     </Modal>
