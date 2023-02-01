@@ -1,6 +1,5 @@
-import { Box, Link, Paper, TextField, Typography } from "@mui/material";
+import { Box, Link, Paper } from "@mui/material";
 import { OutputMode } from "@/types/OutputModes";
-import { useEffect, useState } from "react";
 
 interface ResultProps {
   imageString: string;
@@ -62,12 +61,6 @@ export default function Result(props: ResultProps) {
           outputMode={props.outputMode}
         />
       )}
-      {/*<ImageDisplay*/}
-      {/*  imageString={props.imageString}*/}
-      {/*  serverUrl={props.serverUrl}*/}
-      {/*  openModal={props.openModal}*/}
-      {/*  outputMode={props.outputMode}*/}
-      {/*/>*/}
     </Paper>
   );
 }
