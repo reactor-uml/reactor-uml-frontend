@@ -6,6 +6,8 @@ import Result from "@/components/Result";
 import { useState } from "react";
 import StringDisplay from "@/components/StringDisplay";
 import ImageModal from "@/components/ImageModal";
+import OutputToggle from "@/components/OutputToggle";
+import { OutputMode } from "@/types/OutputModes";
 
 interface HomeProps {
   serverUrl: string;
@@ -16,6 +18,7 @@ export default function Home(props: HomeProps) {
     "SoWkIImgAStDuIfEJin9LJ3YuahCoKnELT2rKqZAJ-9oICrB0Se20000"
   );
   const [modelOpen, setModelOpen] = useState<boolean>(false);
+  const [outputMode, setOutputMode] = useState<OutputMode>(OutputMode.PNG);
   return (
     <>
       <Head>
@@ -52,6 +55,7 @@ export default function Home(props: HomeProps) {
           serverUrl={props.serverUrl}
           closeModal={() => setModelOpen(false)}
           modalOpen={modelOpen}
+          outputMode={outputMode}
         />
         <Container
           sx={{
@@ -64,6 +68,7 @@ export default function Home(props: HomeProps) {
             position: "static",
           }}
         >
+          <OutputToggle outputMode={outputMode} setOutputMode={setOutputMode} />
           <StringDisplay
             setImageString={setImageString}
             imageString={imageString}
@@ -80,6 +85,7 @@ export default function Home(props: HomeProps) {
                 openModal={() => setModelOpen(true)}
                 serverUrl={props.serverUrl}
                 imageString={imageString}
+                outputMode={outputMode}
               />
             </Grid>
           </Grid>
