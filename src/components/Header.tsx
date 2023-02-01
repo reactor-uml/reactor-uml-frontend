@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import GitHub from "@mui/icons-material/GitHub";
 import LightMode from "@mui/icons-material/LightMode";
-import DarkMode from "@mui/icons-material/DarkMode"
+import DarkMode from "@mui/icons-material/DarkMode";
 
 interface HeaderProps {
   themeToggle: () => void;

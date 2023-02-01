@@ -1,9 +1,11 @@
 import { Box, Modal } from "@mui/material";
+import { OutputMode } from "@/types/OutputModes";
 
 interface ImageModalProps {
   imageString: string;
   serverUrl: string;
   modalOpen: boolean;
+  outputMode: OutputMode;
 
   closeModal: () => void;
 }
@@ -26,7 +28,9 @@ export default function ImageModal(props: ImageModalProps) {
     <Modal open={props.modalOpen} onClose={props.closeModal}>
       <Box
         component={"img"}
-        src={`${props.serverUrl}/${props.imageString}`}
+        src={`${props.serverUrl}/${props.outputMode.valueOf()}/${
+          props.imageString
+        }`}
         sx={style}
       ></Box>
     </Modal>
