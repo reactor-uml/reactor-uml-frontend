@@ -1,4 +1,4 @@
-import { Box, Link, Paper } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import { OutputMode } from "@/types/OutputModes";
 
 interface ResultProps {
@@ -36,16 +36,7 @@ function TextDisplay(props: ResultProps) {
 }
 export default function Result(props: ResultProps) {
   return (
-    <Paper
-      sx={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        p: 1.3,
-      }}
-      elevation={3}
-    >
+    <Box>
       {props.outputMode !== OutputMode.TXT ? (
         <ImageDisplay
           imageString={props.imageString}
@@ -61,6 +52,6 @@ export default function Result(props: ResultProps) {
           outputMode={props.outputMode}
         />
       )}
-    </Paper>
+    </Box>
   );
 }

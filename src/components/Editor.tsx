@@ -1,9 +1,10 @@
-import { Paper, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import CodeMirror from "@uiw/react-codemirror";
+import React, { useEffect, useState } from "react";
 
 interface EditorProps {
   imageString: string;
   setImageString: (s: string) => void;
+  darkMode: boolean;
 }
 export default function Editor(props: EditorProps) {
   const plantumlEncoder = require("plantuml-encoder");
@@ -23,27 +24,13 @@ export default function Editor(props: EditorProps) {
   }, [props, uml, plantumlEncoder]);
 
   return (
-    <Paper
-      sx={{
-        width: "100%",
-        height: "100%",
-        p: 1.3,
-        display: "flex",
-        alignItems: "center",
-          justifyContent: "center"
-      }}
-      elevation={3}
-    >
-      <TextField
-        id="outlined-multiline-static"
-        label="plantuml"
-        minRows={8}
-        multiline
-        fullWidth
-        value={uml}
-        onChange={(e) => setUml(e.target.value)}
-        sx={{height: "inherit"}}
-      />
-    </Paper>
+    <CodeMirror
+      value={uml}
+      theme={props.darkMode ? "dark" : undefined}
+      width={"auto"}
+      minHeight={"100%"}
+      height={"auto"}
+      onChange={(e) => setUml(e)}
+    />
   );
 }
